@@ -27,12 +27,22 @@
     <main class="center">
         <form method="post">
             {% csrf_token %}
-            <h1>{{message}}</h1>
-            <input name="username" type="text" class="form-control" placeholder="Username" required>
+            <h1>{{title}}</h1>
+            <div class="auth-form">
+                <input name="username" type="text" class="form-control" placeholder="Username" required>
+                {% for message1 in messages %}
+                    <small style="color: red;">{{message1}}</small><br>
+                {% endfor %}
+                {% if login %}
+                    <small>{{message}} &nbsp;<a href="{% url 'authenticate:signup'%}">{{final}}</a></small>
+               
+                {% else %}
+                    <small>{{message}} &nbsp;<a href="{% url 'authenticate:login' %}">{{final}}</a></small>
+                {% endif %}
+                <input name="password" class="form-control" type="password" placeholder="password" required>
 
-            <input name="password" class="form-control" type="password" placeholder="password" required>
-
-            <button class="btn btn-primary">Enter</button>
+                <button class="btn btn-primary">Enter</button>
+            </div>
         </form>
     </main>
 </body>

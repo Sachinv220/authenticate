@@ -1,4 +1,8 @@
 # django-auth
 
 
-`This django repository has a repository for authenticating users` 
+<details>
+
+works 
+<button>cool</button>
+</details>

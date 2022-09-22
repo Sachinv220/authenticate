@@ -5,10 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 
 redirect_url = "view-name"
-link = "{% url 'authenticate:login '%}"
 message = " have an account"
-
-
 
 def empty(request):
     if request.user.is_authenticated:
@@ -28,7 +25,7 @@ def signup_user(request):
                 return redirect(reverse(redirect_url))
         except Exception:
             messages.add_message(request, messages.ERROR, "your username is already taken")
-    return render(request, "auth.html", context={"title":"Signup", "message": message, "link":"{% url'authenticate:login' %}" ,"final":"login", "login":False})
+    return render(request, "auth.html", context={"title":"Signup", "message": message ,"final":"login", "login":False})
 
 def login_user(request):
     if request.user.is_authenticated:

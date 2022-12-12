@@ -1,8 +1,4 @@
 # django-auth
 
-
-<details>
-
-works 
-<button>cool</button>
-</details>
+#About
+  A simple django app to authenticate users.

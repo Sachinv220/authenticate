@@ -1,4 +1,4 @@
 # django-auth
 
-#About
+# About
   A simple django app to authenticate users.

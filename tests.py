@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
+from .views import redirect_url
 
 class AuthenticationTestCase(TestCase):
     def setUp(self):
@@ -20,13 +21,13 @@ class AuthenticationTestCase(TestCase):
     def test_authenticated_access(self):
         self.client.login(username=self.username, password=self.password)
 
-        url = reverse('protected-view')
+        url = reverse(redirect_url)
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 200)
 
     def test_unauthenticated_access(self):
-        url = reverse('protected-view')
+        url = reverse(redirect_url)
         response = self.client.get(url)
 
         self.assertEqual(response.status_code, 302)
